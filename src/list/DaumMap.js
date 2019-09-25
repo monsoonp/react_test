@@ -13,7 +13,7 @@ function DaumMap(props){
         let mapContainer = document.getElementById('map');
     
         let geocoder = new daum.maps.services.Geocoder();
-        console.log("address: %s", address);
+        //console.log("address: %s", address);
         geocoder.addressSearch(address, function(result, status) {
             //정상적으로 검색이 완료됐으면 
             //console.log(result);
@@ -47,12 +47,13 @@ function DaumMap(props){
        });  
     }
     useEffect(()=>{
+        console.log("DaumMap componentDidMount and DidUpdate");
         if(document.getElementById('map')){
             MapApi(props);
         }
         
         return()=>{
-
+            console.log("DaumMap componentWillUnmount");
         }
     },[])
     return(

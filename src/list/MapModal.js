@@ -11,11 +11,11 @@ function LocationModal(props) {
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
-            style={{opacity:1}}
+            style={{opacity:1, margin:'auto'}}
             >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    위치 보기
+                    위치 정보
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -24,7 +24,6 @@ function LocationModal(props) {
             <Modal.Footer>
                 <Button onClick={props.onHide}>Close</Button>
             </Modal.Footer>
-            {console.log("2 modal window")}
         </Modal>
         
     );
@@ -72,25 +71,23 @@ function MapModal(props) {
     // Similar to componentDidMount and componentDidUpdate: 
 
     useEffect(() => { // Update the document title using the browser API 
-        console.log("componentDidMount and DidUpdate");
+        console.log("MapModal componentDidMount and DidUpdate");
         /*
         if(document.getElementById('map')){
             //MapApi(props);
         }
         */
         return () =>{   //unmount
-            console.log("componentWillUnmount");
+            console.log("MapModal componentWillUnmount");
         }
       
         //console.log("map 2 %s", props.lat);
     },[]);    // Only re-run the effect if props changes    // class component / prevProps, prevState comparison
-
-    console.log("1 return content");
-    
+        
     return (
         <div>
         <ButtonToolbar>
-            <Button variant="primary" onClick={() => setModalShow(true)}>
+            <Button variant="primary" onClick={() => setModalShow(true)} style={{ margin:'auto'}}>
                 위치 보기
             </Button>
             

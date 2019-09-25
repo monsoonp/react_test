@@ -11,6 +11,7 @@ class AddressList extends Component{
     }
     
     shouldComponentUpdate(nextProps, nextState) { // App리렌더링에 따른 PhoneList리렌더링 막음  / 불변성 지킬 것
+        console.log("AddressList shouldComponentUpdate list check")
         return nextProps.list !== this.props.list;  // 다음에 받아올 data가 현재 data와 다를 배열일 때 true
         //return true
     }
@@ -21,7 +22,6 @@ class AddressList extends Component{
         if (this.props.gungu===""){
             list = [];
         }
-        console.log("3-1 gungu: %s",list);
         return(
             <div>
                 <h4>{this.props.gungu} {this.props.list.dong}</h4>

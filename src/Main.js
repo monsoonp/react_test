@@ -62,7 +62,7 @@ class Main extends Component{
     let list = [];
     if (this.state.addr && this.state.addr.length ===0){
       //console.log(this.state.addr);
-      console.log("1-2")
+      console.log("Main componentDidMount")
       d3.csv(csvFile, (data, error) => {
         list = list.concat({...data});
        
