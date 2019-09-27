@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 // daum map
 import MapModal from './MapModal';
+import './Table.css';
 
 class AddressList extends Component{
     static defaultProps={
@@ -49,8 +51,21 @@ class AddressList extends Component{
                         
                     </tbody>
                 </Table>
+                <BootstrapTable ref='table' data={ list }>
+                    {/*<TableHeaderColumn dataField='sido' isKey={ true } dataSort={ true }>시도</TableHeaderColumn> */}
+                    <TableHeaderColumn dataField='sido' dataAlign='center' headerAlign="center" width="15%">시도</TableHeaderColumn>
+                    <TableHeaderColumn dataField='sigun' dataAlign='center' headerAlign="center" width="15%" >시군구</TableHeaderColumn>
+                    <TableHeaderColumn dataField='dong'dataAlign='center' headerAlign="center" width="15%">읍면동</TableHeaderColumn>
+                    <TableHeaderColumn dataField='street'dataAlign='center' headerAlign="center" width="20%">거리명</TableHeaderColumn>
+                    <TableHeaderColumn isKey={ true }  dataField='새주소본번' dataSort={ true } dataAlign='center' headerAlign="center" width="5%">본번</TableHeaderColumn>
+                    <TableHeaderColumn dataField='새주소부번' dataAlign='center' headerAlign="center" width="5%">부번</TableHeaderColumn>
+                    <TableHeaderColumn dataField='건물명' dataAlign='center' headerAlign="center" width="15%">건물명</TableHeaderColumn>
+                    <TableHeaderColumn dataField='상세건물명' dataAlign='center' headerAlign="center" width="15%">상세건물명</TableHeaderColumn>
+                </BootstrapTable>
             </div>
         );
+        //"sido","sigun","dong","구주소본번","구주소부번","street","새주소본번","새주소부번","건물명","상세건물명","X좌표","Y좌표"
+
     }
 }
 

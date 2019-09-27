@@ -146,13 +146,13 @@ class Main extends Component{
             */}
             <div>
               <Grid container spacing={0} justify="flex-start" alignItems="center" direction="row">
-                  <Grid item xs={1}>
+                  <Grid item xs={2}>
                     <Paper className={classes.paper}>
                       <Button variant="primary" onClick={this.handleChange} value="jonro">종로구</Button>
                       <Button variant="info" onClick={this.handleChange} value="jungrang">중랑구</Button>
                     </Paper>
                   </Grid>
-                  <Grid item xs={10}>
+                  <Grid item xs={9}>
                     <Paper className={classes.paper}>
                       <h2><b>서울특별시 종로구, 중랑구 도로명 주소 정보</b></h2>
                     </Paper>
