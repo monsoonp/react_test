@@ -67,10 +67,10 @@ class AddressList extends Component{
                     <TableHeaderColumn dataField='sido' dataAlign='center' headerAlign="center" width="10%">시도</TableHeaderColumn>
                     <TableHeaderColumn dataField='sigun' dataAlign='center' headerAlign="center" width="10%" >시군구</TableHeaderColumn>
                     <TableHeaderColumn dataField='dong'dataAlign='center' headerAlign="center" width="10%">읍면동</TableHeaderColumn>
-                    <TableHeaderColumn dataField='street'dataAlign='center' headerAlign="center" width="15%">거리명</TableHeaderColumn>
+                    <TableHeaderColumn dataField='street'dataAlign='center' headerAlign="center" width="10%">거리명</TableHeaderColumn>
                     <TableHeaderColumn dataField='새주소본번' dataAlign='center' headerAlign="center" width="10%" isKey={ true } dataSort>본번<UnfoldMoreIcon/></TableHeaderColumn>
                     <TableHeaderColumn dataField='새주소부번' dataAlign='center' headerAlign="center" width="5%">부번</TableHeaderColumn>
-                    <TableHeaderColumn dataField='건물명' dataAlign='center' headerAlign="center" width="10%">건물명</TableHeaderColumn>
+                    <TableHeaderColumn dataField='건물명' dataAlign='center' headerAlign="center" width="15%">건물명</TableHeaderColumn>
                     <TableHeaderColumn dataField='상세건물명' dataAlign='center' headerAlign="center" width="15%">상세건물명</TableHeaderColumn>
                     <TableHeaderColumn dataField='location' dataAlign='center' headerAlign="center" width="15%" dataFormat={this.showModal}>위치</TableHeaderColumn>
                 </BootstrapTable>
