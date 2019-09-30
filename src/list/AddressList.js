@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';
 // daum map
 import MapModal from './MapModal';
 import './Table.css';
 
+const options = {
+    noDataText: ' '
+};
 class AddressList extends Component{
     static defaultProps={
         csv:"",
@@ -19,6 +23,11 @@ class AddressList extends Component{
     }
     //"sido","sigun","dong","구주소본번","구주소부번","street","새주소본번","새주소부번","건물명","상세건물명","X좌표","Y좌표"
     //"시도명칭","시군구명칭","읍면동명칭","구주소본번","구주소부번","도로명칭","새주소본번","새주소부번","건물명","상세건물명","X좌표","Y좌표"
+    showModal = (cell, row) => {
+        //console.log(row);
+        return <MapModal info = {{...row}} key={row}/>
+    }
+    
     render(){
         let list = this.props.list.filter(li => li.sigun === this.props.gungu);
         if (this.props.gungu===""){
@@ -27,6 +36,7 @@ class AddressList extends Component{
         return(
             <div>
                 <h4>{this.props.gungu} {this.props.list.dong}</h4>
+                {/* 
                 <Table striped bordered hover responsive="lg">
                     <thead>
                         <tr>
@@ -51,16 +61,18 @@ class AddressList extends Component{
                         
                     </tbody>
                 </Table>
-                <BootstrapTable ref='table' data={ list }>
+                */}
+                <BootstrapTable ref='table' data={ list } options={options}>
                     {/*<TableHeaderColumn dataField='sido' isKey={ true } dataSort={ true }>시도</TableHeaderColumn> */}
-                    <TableHeaderColumn dataField='sido' dataAlign='center' headerAlign="center" width="15%">시도</TableHeaderColumn>
-                    <TableHeaderColumn dataField='sigun' dataAlign='center' headerAlign="center" width="15%" >시군구</TableHeaderColumn>
-                    <TableHeaderColumn dataField='dong'dataAlign='center' headerAlign="center" width="15%">읍면동</TableHeaderColumn>
-                    <TableHeaderColumn dataField='street'dataAlign='center' headerAlign="center" width="20%">거리명</TableHeaderColumn>
-                    <TableHeaderColumn isKey={ true }  dataField='새주소본번' dataSort={ true } dataAlign='center' headerAlign="center" width="5%">본번</TableHeaderColumn>
+                    <TableHeaderColumn dataField='sido' dataAlign='center' headerAlign="center" width="10%">시도</TableHeaderColumn>
+                    <TableHeaderColumn dataField='sigun' dataAlign='center' headerAlign="center" width="10%" >시군구</TableHeaderColumn>
+                    <TableHeaderColumn dataField='dong'dataAlign='center' headerAlign="center" width="10%">읍면동</TableHeaderColumn>
+                    <TableHeaderColumn dataField='street'dataAlign='center' headerAlign="center" width="15%">거리명</TableHeaderColumn>
+                    <TableHeaderColumn dataField='새주소본번' dataAlign='center' headerAlign="center" width="10%" isKey={ true } dataSort>본번<UnfoldMoreIcon/></TableHeaderColumn>
                     <TableHeaderColumn dataField='새주소부번' dataAlign='center' headerAlign="center" width="5%">부번</TableHeaderColumn>
-                    <TableHeaderColumn dataField='건물명' dataAlign='center' headerAlign="center" width="15%">건물명</TableHeaderColumn>
+                    <TableHeaderColumn dataField='건물명' dataAlign='center' headerAlign="center" width="10%">건물명</TableHeaderColumn>
                     <TableHeaderColumn dataField='상세건물명' dataAlign='center' headerAlign="center" width="15%">상세건물명</TableHeaderColumn>
+                    <TableHeaderColumn dataField='location' dataAlign='center' headerAlign="center" width="15%" dataFormat={this.showModal}>위치</TableHeaderColumn>
                 </BootstrapTable>
             </div>
         );
