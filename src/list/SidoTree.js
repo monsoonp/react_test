@@ -47,7 +47,6 @@ class SidoTree extends Component{
         
         //console.log(address);
         //console.log(dong);
-        console.log("2-1 address: %s,  dong: %s", address, dong)
         return(
             <div>
                 {dong.map( (adr, i) => {
