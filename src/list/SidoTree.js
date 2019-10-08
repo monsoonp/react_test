@@ -33,7 +33,7 @@ class SidoTree extends Component{
         
     }
     shouldComponentUpdate(nextProps, nextState) {
-        console.log("SidoTree componentDidMount")
+        console.log("SidoTree shouldComponentUpdate")
         // return false 하면 업데이트를 안함
         return nextProps.address !== this.props.address
         //return true;
