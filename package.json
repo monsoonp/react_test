@@ -133,7 +133,7 @@
     ]
   },
   "devDependencies": {
-    "react-dev-utils": "^9.0.4",
+    "react-dev-utils": "^11.0.4",
     "webpack-dev-server": "^3.2.1"
   }
 }
